@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+/*ios SF pro fontları different weights*/
+
+@font-face {
+  font-family: 'SFPro';
+  src: url('./assets/fonts/SFPRODISPLAYULTRALIGHTITALIC.OTF') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SFPro';
+  src: url('./assets/fonts/SFPRODISPLAYTHINITALIC.OTF') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SFPro';
+  src: url('./assets/fonts/SFPRODISPLAYLIGHTITALIC.OTF') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SFPro';
+  src: url('./assets/fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFPro';
+  src: url('./assets/fonts/SFPRODISPLAYMEDIUM.OTF') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFPro';
+  src: url('./assets/fonts/SFPRODISPLAYSEMIBOLDITALIC.OTF') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SFPro';
+  src: url('./assets/fonts/SFPRODISPLAYBOLD.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFPro';
+  src: url('./assets/fonts/SFPRODISPLAYHEAVYITALIC.OTF') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SFPro';
+  src: url('./assets/fonts/SFPRODISPLAYBLACKITALIC.OTF') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+:root {
+    font-family: 'SFPro';
+    line-height: 1.5;
+    font-weight: 400;
+
+    color: rgba(255,255,255,0.87);
+    background-color: #242424;
+    color-scheme: light dark;
+
+    text-rendering: optimizeLegibility;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+input::placeholder {
+    font-family: 'SFPro';
+    text-rendering: optimizeSpeed;
+    font-style: italic;
+    font-size: small;
+    font-weight: 200;
+}
+
+a {
+    font-weight: 500;
+    color: #645cff;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: #545bf1;
+}
+
+body {
+    margin: 0;
+    font-family: 'SFPro';
+}
+
+h1 {
+    font-family: 'SFPro';
+    font-weight: medium;
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+button {
+    border-radius: 100px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: medium;
+    font-family: 'SFPro';
+    cursor: pointer;
+    transition: border-color 0.25s;
+
+}
+
+
+
+.aurora-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 40% 40%, rgba(0,200,200,0.2), transparent 60%),
+                radial-gradient(circle at 70% 70%, rgba(0, 128, 255, 0.2), transparent 60%),
+                radial-gradient(circle at 50% 50%, rgba(173, 216, 230, 0.2), transparent 60%);
+
+    animation: auroraMove 50s ease-in-out infinite, auroraHue 30s linear infinite;
+    z-index: -1;
+}
+
+@keyframes auroraMove {
+    0%,100% {
+        background-position: 30% 30%, 70% 70%, 50% 50%;
+    }
+    50% {
+        background-position: 35% 35%, 65% 65%,55% 55%;
+    }
+}
+
+@keyframes auroraHue {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(200, 200, 200, 0.4);
+  border-radius: 4px;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

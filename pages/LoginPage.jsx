@@ -4,6 +4,8 @@ import { auth } from "../firebase/auth";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
+import '../src/index.css';
+
 import busimg from "../src/assets/busimg.gif";
 import calendarimg from "../src/assets/calendarimg.jpg";
 
@@ -31,7 +33,7 @@ function LoginPage() {
         },
         {
             title: "Shuttle Hours",
-            description: "Check and filter shuttle and ring services",
+            description: "Check and filter shuttle and ring service hoours.",
             image: busimg,
             link: "/shuttle",
         },
@@ -62,7 +64,71 @@ function LoginPage() {
     };
 
     return (
-        <div/>
+        <div className="relative h-screen w-full flex items-center justify-center overflow-hidden p-6">
+                <div className="aurora-background"></div>
+            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 h-7xl max-w-7xl w-full z-10">
+                {/* sol taraftaki kart login formu */}
+                <div className="bg-white rounded-3xl shadow-xl p-8 flex flex-col justify-center">
+                    <h1 className="text-3xl text-gray-600 mb-2">Welcome to
+                                            <span className=" font-extrabold  text-6xl text-gray-700 mb-2"> EduStack</span>
+                    </h1>
+                    <p className="text-gray-500 pt-2 pb-6 ml-2  mb-6">Please login to continue</p>
+                    <form onSubmit={handleLogin} className="space-y-4 flex flex-col items-center justify-center">
+                        <input 
+                        type="email"
+                        placeholder="University mail"
+                        className="w-full p-3 border rounded-full block"
+                        onChange={(e)=>setEmail(e.target.value)}
+                        required/>
+                        
+                        <input
+                        type="password"
+                        placeholder="Password"
+                        className="w-full p-3 border rounded-full block"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required/>
+                        <button
+                        type="submit"
+                        className="w-140  h-12 p-3 bg-gray-600 text-white/80 rounded-full hover:bg-gray-700 transition"
+                        >
+                        Login
+                        </button>
+                    </form>
+
+                </div>
+
+                {/* sağ taraftaki calendar ve shuttle kısmı */}
+                <div className="relative backdrop-blur-md rounded-3xl shadow-xl overflow-hidden flex flex-col justify-between h-140" >
+                    <img src={cards[currentCard].image}
+                    alt="card visual"
+                    className="w-full h-full rounded-t-3xl"
+                    />
+                <div className="-mt-3 rounded-full">
+                    <div className="bg-white/70 backdrop-blur-md p-4 rounded-lg shadow-md mb-4">
+                    <h2 className="text-xl font-bold text-gray-800">{cards[currentCard].title}</h2>
+                    <p className="text-gray-600 text-sm">{cards[currentCard].description}</p>
+                    <a href={cards[currentCard].link} className="inline-block mt-3 text-cyan-500 font-medium underline">
+                        Visit Page →
+                    </a>
+                    </div>
+                </div>
+
+               <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
+            {cards.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentCard(idx)}
+                className={`w-3 h-3 rounded-full transition ${
+                  idx === currentCard ? "bg-gray-600" : "bg-gray-400  "
+                }`}
+              />
+            ))}
+          </div>
+
+                </div>
+            </div>
+        </div>
     );
 
 }

@@ -1,5 +1,7 @@
 import { Route,Routes } from 'react-router-dom';
 
+import './index.css';
+
 import LoginPage from '../pages/LoginPage';
 import StaffPage from '../pages/StaffPage';
 import AdminPage from '../pages/AdminPage';
@@ -15,17 +17,17 @@ function App() {
       <Route path='/' element={<LoginPage/>} />
 
       <Route path='/admin' element={
-        <ProtectedRoute>
+        <ProtectedRoute rolesAllowed={["admin"]}>
         <AdminPage/>
       </ProtectedRoute>} />
 
       <Route path='/student' element={
-        <ProtectedRoute>
+        <ProtectedRoute rolesAllowed={["student"]}>
           <StudentPage/>
         </ProtectedRoute>}/>
 
       <Route path='staff' element={
-        <ProtectedRoute>
+        <ProtectedRoute rolesAllowed={["staff"]}>
           <StaffPage/>
         </ProtectedRoute>} />
 
