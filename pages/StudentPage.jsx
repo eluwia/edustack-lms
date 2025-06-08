@@ -2,8 +2,11 @@ import React, { useState } from "react";
 
 import "../src/index.css";
 import HandleLogout from "../components/HandleLogout";
+import CurriculumSection from "../studentsections/CurriculumSection";
+import ProfileSection from "../studentsections/ProfileSection";
 
 function StudentPage() {
+
   const [activeSection, setActiveSection] = useState("profile");
 
   const sections = [
@@ -15,11 +18,14 @@ function StudentPage() {
     "quota",
   ];
 
+  const [fname, setFname] = useState("");
+const [fullname, setFullname] = useState("");
+
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
       <div className="aurora-background" />
-      <div className="relative z-10 pt-5 w-full h-screen flex justify-center items-start">
-        <div className="bg-white w-[95vw] max-w-7xl h-[90vh] rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+      <div className="relative pt-8 w-full h-screen flex justify-center items-start">
+        <div className="bg-white/90 w-[95vw] max-w-[95vw] h-[90vh] rounded-3xl shadow-2xl overflow-hidden flex flex-col">
 
           <div className="flex justify-between items-center px-8 py-4 bg-gray-200/50 shadow-md rounded-t-3xl sticky top-0 z-20">
             <div className="flex gap-4">
@@ -35,18 +41,16 @@ function StudentPage() {
               ))}
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-gray-700 font-medium">Student Name</span>
-              <button>{<HandleLogout />}</button>
+              <span className="text-gray-700 font-medium">{fullname}</span>
+              {<HandleLogout />}
 
             </div>
           </div>
 
           <div className="flex-1 relative">
             {activeSection === "profile" && (
-              <div className="h-full w-full flex items-center justify-center">
-                <h1 className="text-3xl font-bold text-gray-800">Welcome to EduStack, Student Name</h1>
-              </div>
-            )}
+  <ProfileSection setFullname={setFullname} setFname={setFname} />
+)}
 
             {activeSection === "schedule" && (
               <div className="h-full w-full flex items-center justify-center">
@@ -55,9 +59,7 @@ function StudentPage() {
             )}
 
             {activeSection === "ccr" && (
-              <div className="h-full w-full flex items-center justify-center">
-                <h1 className="text-2xl font-bold text-gray-800">Curriculum Section</h1>
-              </div>
+              <CurriculumSection/>
             )}
 
             {activeSection === "transcript" && (

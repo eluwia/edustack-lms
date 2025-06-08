@@ -84,18 +84,23 @@ input::placeholder {
     font-family: 'SFPro';
     text-rendering: optimizeSpeed;
     font-style: italic;
-    font-size: small;
-    font-weight: 200;
+    font-size: medium;
+    font-weight: 300;
+    color:#ffffffa9;
+}
+
+input:focus {
+  outline:none;
 }
 
 a {
     font-weight: 500;
-    color: #645cff;
+    color: #eae0ea;
     text-decoration: inherit;
 }
 
 a:hover {
-    color: #545bf1;
+    color: #afaeb0;
 }
 
 body {
@@ -110,6 +115,17 @@ h1 {
     line-height: 1.1;
 }
 
+@layer utilities {
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1.5s ease-out forwards;
+  }
+}
+
 button {
     border-radius: 100px;
     border: 1px solid transparent;
@@ -121,6 +137,13 @@ button {
 
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 
 .aurora-background {

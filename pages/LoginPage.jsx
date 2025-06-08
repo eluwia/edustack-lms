@@ -33,7 +33,7 @@ function LoginPage() {
         },
         {
             title: "Shuttle Hours",
-            description: "Check and filter shuttle and ring service hoours.",
+            description: "Check and filter shuttle hours.",
             image: busimg,
             link: "/shuttle",
         },
@@ -70,21 +70,21 @@ function LoginPage() {
                 {/* sol taraftaki kart login formu */}
                 <div className="bg-white rounded-3xl shadow-xl p-8 flex flex-col justify-center">
                     <h1 className="text-3xl text-gray-600 mb-2">Welcome to
-                                            <span className=" font-extrabold  text-6xl text-gray-700 mb-2"> EduStack</span>
+                                            <span className=" font-weight-500 text-6xl font-medium text-gray-600 mb-2  "> EduStack</span>
                     </h1>
-                    <p className="text-gray-500 pt-2 pb-6 ml-2  mb-6">Please login to continue</p>
+                    <p className="text-gray-500 pt-0 pb-6 ml-2 text-base  mb-6">Please login to continue</p>
                     <form onSubmit={handleLogin} className="space-y-4 flex flex-col items-center justify-center">
                         <input 
                         type="email"
                         placeholder="University mail"
-                        className="w-full p-3 border rounded-full block"
+                        className="w-full p-3 rounded-full block bg-gray-400/60  border-gray-520/50"
                         onChange={(e)=>setEmail(e.target.value)}
                         required/>
                         
                         <input
                         type="password"
                         placeholder="Password"
-                        className="w-full p-3 border rounded-full block"
+                        className=" w-full p-3 rounded-full block bg-gray-400/60 border-gray-200/50"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required/>
@@ -105,10 +105,13 @@ function LoginPage() {
                     className="w-full h-full rounded-t-3xl"
                     />
                 <div className="-mt-3 rounded-full">
-                    <div className="bg-white/70 backdrop-blur-md p-4 rounded-lg shadow-md mb-4">
-                    <h2 className="text-xl font-bold text-gray-800">{cards[currentCard].title}</h2>
-                    <p className="text-gray-600 text-sm">{cards[currentCard].description}</p>
-                    <a href={cards[currentCard].link} className="inline-block mt-3 text-cyan-500 font-medium underline">
+                    <div className="bg-white/70 backdrop-blur-md p-4 rounded-lg shadow-md mb-4 flex justify-items-stretch h-30">
+                    <div>
+                        <h2 className="text-xl font-bold text-gray-800 mt-3">{cards[currentCard].title}</h2>
+                    <h5 className="text-gray-600 text-sm ">{cards[currentCard].description}</h5>
+                    </div>
+                    
+                    <a href={cards[currentCard].link} className="absolute right-10 mt-7 font-medium underline">
                         Visit Page →
                     </a>
                     </div>
