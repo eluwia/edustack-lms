@@ -1,0 +1,58 @@
+edustack-lms/
+├─ components/
+│  ├─ HandleLogin.jsx
+│  ├─ HandleLogout.jsx
+│  └─ ProtectedRoute.jsx
+├─ firebase/
+│  ├─ auth.js
+│  └─ config.js
+├─ pages/
+│  ├─ AcademicCalendar.jsx
+│  ├─ AdminPage.jsx
+│  ├─ LoginPage.jsx
+│  ├─ ShuttleHours.jsx
+│  ├─ StaffPage.jsx
+│  └─ StudentPage.jsx
+├─ public/
+│  └─ vite.svg
+├─ src/
+│  ├─ assets/
+│  │  ├─ fonts/
+│  │  │  ├─ SFPRODISPLAYBLACKITALIC.OTF
+│  │  │  ├─ SFPRODISPLAYBOLD.OTF
+│  │  │  ├─ SFPRODISPLAYHEAVYITALIC.OTF
+│  │  │  ├─ SFPRODISPLAYLIGHTITALIC.OTF
+│  │  │  ├─ SFPRODISPLAYMEDIUM.OTF
+│  │  │  ├─ SFPRODISPLAYREGULAR.OTF
+│  │  │  ├─ SFPRODISPLAYSEMIBOLDITALIC.OTF
+│  │  │  ├─ SFPRODISPLAYTHINITALIC.OTF
+│  │  │  └─ SFPRODISPLAYULTRALIGHTITALIC.OTF
+│  │  ├─ busimg.gif
+│  │  ├─ calendarimg.jpg
+│  │  ├─ download.png
+│  │  ├─ eduicon.png
+│  │  ├─ FuNrEemicQWctXIhmT6nTQSxlAx2.JPG
+│  │  └─ react.svg
+│  ├─ App.css
+│  ├─ App.jsx
+│  ├─ index.css
+│  └─ main.jsx
+├─ staffsections/
+│  ├─ DemographicsSection.jsx
+│  ├─ PreviousCoursesSection.jsx
+│  ├─ StaffProfileSection.jsx
+│  └─ StaffScheduleSection.jsx
+├─ studentsections/
+│  ├─ CurriculumSection.jsx
+│  ├─ ProfileSection.jsx
+│  ├─ ScheduleSection.jsx
+│  └─ TranscriptSection.jsx
+├─ .gitignore
+├─ eslint.config.js
+├─ filetree.txt
+├─ index.html
+├─ package-lock.json
+├─ package.json
+├─ README.md
+├─ tailwind.config.js
+└─ vite.config.js

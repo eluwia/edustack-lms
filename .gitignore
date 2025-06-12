@@ -8,6 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 firebase
+venv
 node_modules
 dist
 dist-ssr
@@ -15,6 +16,7 @@ dist-ssr
 
 # Editor directories and files
 .vscode/*
+*venv
 !.vscode/extensions.json
 .idea
 .DS_Store

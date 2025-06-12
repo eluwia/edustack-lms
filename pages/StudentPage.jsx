@@ -4,6 +4,9 @@ import "../src/index.css";
 import HandleLogout from "../components/HandleLogout";
 import CurriculumSection from "../studentsections/CurriculumSection";
 import ProfileSection from "../studentsections/ProfileSection";
+import TranscriptSection from "../studentsections/TranscriptSection";
+import ScheduleSection from "../studentsections/ScheduleSection";
+import EnrollmentSection from "../studentsections/EnrollmentSection";
 
 function StudentPage() {
 
@@ -12,7 +15,7 @@ function StudentPage() {
   const sections = [
     "profile",
     "schedule",
-    "ccr",
+    "curriculum",
     "transcript",
     "enrollment",
     "quota",
@@ -53,25 +56,19 @@ const [fullname, setFullname] = useState("");
 )}
 
             {activeSection === "schedule" && (
-              <div className="h-full w-full flex items-center justify-center">
-                <h1 className="text-2xl font-bold text-gray-800">Weekly Schedule</h1>
-              </div>
+              <ScheduleSection/>
             )}
 
-            {activeSection === "ccr" && (
+            {activeSection === "curriculum" && (
               <CurriculumSection/>
             )}
 
             {activeSection === "transcript" && (
-              <div className="h-full w-full flex items-center justify-center">
-                <h1 className="text-2xl font-bold text-gray-800">Transcript Section</h1>
-              </div>
+              <TranscriptSection/>
             )}
 
             {activeSection === "enrollment" && (
-              <div className="h-full w-full flex items-center justify-center">
-                <h1 className="text-2xl font-bold text-gray-800">Enrollment Section</h1>
-              </div>
+             <EnrollmentSection/>
             )}
 
             {activeSection === "quota" && (

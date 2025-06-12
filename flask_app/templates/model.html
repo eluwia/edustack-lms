@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Model Bilgisi ve Tahmin</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .container { max-width: 600px; margin: auto; }
+        label, select, input, button { display: block; margin-top: 15px; }
+        select, input[type="number"] { width: 100%; padding: 8px; }
+        button { padding: 10px 20px; cursor: pointer; }
+        ul { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Model Bilgisi</h1>
+        <p><strong>Model tipi:</strong> {{ model_info }}</p>
+
+        {% if features %}
+        <h3>Model Özellikleri:</h3>
+        <ul>
+            {% for f in features %}
+                <li>{{ f }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <hr/>
+
+        <h2>Tahmin Yap</h2>
+        <form method="POST" action="/predict">
+            <label for="year_start">Year Start:</label>
+            <input type="number" step="1" id="year_start" name="year_start" required/>
+
+            <label for="course_code">Course Code:</label>
+            <select id="course_code" name="course_code" required>
+                <!--
+
+                <option value="CS115">CS115</option>
+                <option value="CS115">CS115</option>
+                <option value="CS115">CS115</option>
+                <option value="CS115">CS115</option>
+                <option value="CS115">CS115</option>
+                <option value="CS115">CS115</option>
+                <option value="CS115">CS115</option>
+                <option value="CS115">CS115</option>
+                <option value="CS115">CS115</option>
+                -->
+                <option value="">Seçiniz</option>
+                <option value="CS101">CS101</option>
+                <option value="CS102">CS102</option>
+                <option value="Cs115">CS115</option>
+                <option value="CS123">CS123</option>
+                <option value="CS201">CS201</option>
+                <option value="CS202">CS202</option>
+                
+
+                
+            </select>
+
+            <label for="instructor">Instructor:</label>
+            <select id="instructor" name="instructor" required>
+                <option value="">Seçiniz</option>
+                <option value="Abdullah Ercument Cicek">Abdullah Ercument Cicek</option>
+                <option value="Alp Sayin">Alp Sayin</option>
+                <option value="Aynur Dayanik">Aynur Dayanik</option>
+                <option value="Lori Rae Russell">Lori Rae</option>
+                <!-- Diğer instructor seçeneklerini buraya ekle -->
+            </select>
+
+            <label for="is_elective">Is Elective:</label>
+            <select id="is_elective" name="is_elective" required>
+                <option value="">Seçiniz</option>
+                <option value="GE">GE</option>
+                <option value="NE">NE</option>
+                <option value="PE">PE</option>
+                <option value="ST">ST</option>
+                <option value="TE">TE</option>
+            </select>
+
+            <label for="prerequisite_type">Prerequisite Type:</label>
+            <select id="prerequisite_type" name="prerequisite_type" required>
+                <option value="">Seçiniz</option>
+                <option value="AND">AND</option>
+                <option value="OR">OR</option>
+                <option value="Single">Single</option>
+            </select>
+
+            <label for="term">Term:</label>
+            <select id="term" name="term" required>
+                <option value="">Seçiniz</option>
+                <option value="F">Fall</option>
+                <option value="M">Spring</option>
+                <option value="S">Summer</option>
+            </select>
+
+            <button type="submit">Tahmin Et</button>
+        </form>
+
+        {% if prediction %}
+            <h3>Tahmin Sonucu:</h3>
+            <p>{{ prediction }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
